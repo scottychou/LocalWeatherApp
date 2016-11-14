@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/stylesheet.min.css">
     <meta charset="utf-8">
     <title>Local Weather</title>
   </head>
   <body>
 
-<header>
-  <h1>Local Weather</h1>
-</header>
+    <header class="page-header">
+      <h1>Local Weather App</h1>
+    </header>
+
+    <section>
+      <h1 class="location"></h1>
+      <h1 class="temperature"></h1>
+    </section>
+
+    <div id="thunderstorm" class="hidden icon thunder-storm">
+      <div class="cloud"></div>
+      <div class="lightning">
+        <div class="bolt"></div>
+        <div class="bolt"></div>
+      </div>
+    </div>
+
+    <div id="cloudy" class="hidden icon cloudy">
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+    </div>
+
+    <div id="snowy" class="hidden icon flurries">
+      <div class="cloud"></div>
+      <div class="snow">
+        <div class="flake"></div>
+        <div class="flake"></div>
+      </div>
+    </div>
+
+    <div id="sunny" class="hidden icon sunny">
+      <div class="sun">
+        <div class="rays"></div>
+      </div>
+    </div>
+
+    <div id="rainy" class="hidden icon rainy">
+      <div class="cloud"></div>
+      <div class="rain"></div>
+    </div>
 
     <!-- <footer id=myFooter>
       <a href="https://twitter.com/scottychou"><i class="fa fa-twitter"></i></a>
