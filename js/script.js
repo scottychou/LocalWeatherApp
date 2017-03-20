@@ -11,37 +11,36 @@ $(document).ready(function(){
       var city = data.name;
       var tempF = Math.round(data.main.temp);
       var tempC = Math.round((data.main.temp-32)*(5/9));
-      var weatherIcon = data.weather[0].main;
-      console.log(weatherIcon);
+      // var weatherIcon = data.weather[0].main;
+      // console.log(weatherIcon);
       $(".location").html(city);
-      $(".temperature").html(tempF +"F");
-      // clear clouds thunderstorm rain snow
-      switch (weatherIcon) {
-            case 'Clear':
-              $("#sunny").removeClass('hidden');
-              break;
-            case 'Clouds':
-              $("#sunny").removeClass('hidden');
-              break;
-            case 'Rain':
-              $("#sunny").removeClass('hidden');
-              break;
-            case 'Snow':
-              $("#sunny").removeClass('hidden');
-              break;
-            case 'Clear':
-              $("#sunny").removeClass('hidden');
-              break;
-            case 'Thunderstorm':
-              $("#sunny").removeClass('hidden');
-              break;
-            default:
-          $('div.clouds').removeClass('hide');
-          // modify default later
-          }
+      $(".temperature").html(tempF);
 
     });
   });
 
+  function convertToCelcius(fahrenheit){
+      var c = (5/9)*(fahrenheit-32);
+      return c;
+  }
+  function convertToFahrenheit(celcius){
+      var f = (9/5 * celcius) + 32;
+      return f;
+  }
+
+  $("#convert").on("click",function(){
+    var theText = $("#convert").text();
+    var theTemp = $(".temperature").text();
+    //console.log(theTemp);
+    if(theText === 'F'){
+      $("#convert").text("C");
+      var newTemp = convertToCelcius(theTemp).toFixed(2);
+      $(".temperature").html(newTemp);
+    } else {
+      $("#convert").text("F");
+      var newTemp = convertToFahrenheit(theTemp).toFixed(2);
+      $(".temperature").html(newTemp);
+    }
+  })
 
 });
